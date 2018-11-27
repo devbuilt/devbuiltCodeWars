@@ -1,19 +1,21 @@
 //Largest 5 digit number in a series
 
 function solution(digits) {
-    if (digits.length <= 5) {return digits;}
-    
-    let largestFiveDigitNumber = digits.slice(0, 5);
 
-    for (let i = 5; i < digits.length; i++) {
+    if (digits.length <= 5) { return digits; }
 
-        let currentFiveDigitNumber = digits.slice(i, i + 5);
+    let largestFive = digits.slice(0, 5); // remove largest five digits
 
-        if (currentFiveDigitNumber > largestFiveDigitNumber) {
-            largestFiveDigitNumber = currentFiveDigitNumber;
+    for (let i = 5; i < digits.length; i++) { // loop 
+
+        let currentFive = digits.slice(i, i + 5)
+
+        if (currentFive > largestFive) {
+            largestFive = currentFive
         }
+
     }
-    return Number(largestFiveDigitNumber);
+    return Number(largestFive)
 }
 
-console.log(solution("actual", "expected", "This is just an example of how you can write your own TDD tests"))
+console.log(solution("actual", "expect", "This is just an example of how you can write your own TDD tests"))
